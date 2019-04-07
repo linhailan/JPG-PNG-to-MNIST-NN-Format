@@ -53,7 +53,6 @@ for name in Names:
 	header.append(int('0x'+hexval[2:][2:],16))
 
 	data_label = header + data_label
-	print("data_label:",data_label)
 
 	# additional header for images array
 	
@@ -63,10 +62,8 @@ for name in Names:
 		raise ValueError('Image exceeds maximum size: 256x256 pixels');
 
 	header[3] = 3 # Changing MSB for image data (0x00000803)
-	print("header:",header)
 
 	data_image = header + data_image
-	print("data_image:",data_image[:128])
 
 	imagesfile = name[1]+'-images-idx3-ubyte'
 	if os.path.exists(imagesfile):
